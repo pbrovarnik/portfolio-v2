@@ -1,8 +1,11 @@
 import { MouseEventHandler, useEffect, useRef } from 'react';
+import { useTheme } from '../hooks/useTheme';
 
 export default function About() {
 	const captureDivRef = useRef<HTMLDivElement>(null);
 	const overlayDivRef = useRef<HTMLDivElement>(null);
+
+	const { theme } = useTheme();
 
 	useEffect(() => {
 		if (!captureDivRef.current || !overlayDivRef.current) return;
@@ -22,7 +25,7 @@ export default function About() {
 
 		overlayDivRef.current.style.setProperty('--glow-x', `${x}px`);
 		overlayDivRef.current.style.setProperty('--glow-y', `${y}px`);
-		overlayDivRef.current.style.setProperty('--glow-opacity', '.7');
+		overlayDivRef.current.style.setProperty('--glow-opacity', theme === 'dark' ? '.7' : '.9');
 	};
 
 	const handleMouseOut: MouseEventHandler<HTMLDivElement> = () => {
@@ -33,7 +36,7 @@ export default function About() {
 
 	return (
 		<div ref={captureDivRef} className="glow-capture relative" onMouseMove={handleMouseMove} onMouseOut={handleMouseOut}>
-			<div className="glow group font-light flex flex-col flex-wrap items-center justify-center gap-6 rounded-md backdrop-blur-md glow:text-glow md:flex-row md:items-start md:justify-between">
+			<div className="glow group font-medium flex flex-col flex-wrap items-center justify-center gap-6 rounded-md glow:text-glow md:flex-row md:items-start md:justify-between">
 				<p>
 					It all began in 2010 when I ventured into the world of tech to create processes for optimizing software quality. I quickly found myself diving headfirst into building automated solutions,
 					aiming to bring fast and reliable development cycles to e-commerce corporations and analytics platforms. This journey has taken me from designing tools that ensure product reliability to now

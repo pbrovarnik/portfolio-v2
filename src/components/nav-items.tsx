@@ -8,7 +8,7 @@ const navItemsList = [
 
 export default function NavItems() {
 	return (
-		<nav className="nav hidden lg:block" aria-label="Jump links">
+		<nav id="nav-items" className="nav hidden lg:block pointer-events-none" aria-label="Jump links">
 			<ul className="mt-16 w-max">
 				{navItemsList.map((item, idx) => (
 					<NavItem key={idx} {...item} />

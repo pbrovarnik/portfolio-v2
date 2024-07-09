@@ -53,16 +53,19 @@ export default function MainContent() {
 			for (const entry of entries) {
 				const navElement = document.querySelector(`a[href="#${entry.target.id}"]`);
 				if (!navElement) break;
+
 				if (entry.isIntersecting && !navElement.classList.contains('active')) {
 					document.querySelectorAll('.nav-item').forEach((item) => {
 						if (item.classList.contains('active')) item.classList.remove('active');
 					});
+
 					navElement.classList.add('active');
 				}
 			}
 		}, options);
 
 		[aboutRef.current, experienceRef.current, projectsRef.current].forEach((element) => observer.observe(element));
+
 		return () => {
 			observer.disconnect();
 		};

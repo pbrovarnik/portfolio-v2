@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { getBrowser } from '../utils/utils';
 
 export default function Hero() {
 	const scrollingElementRef = useRef<HTMLDivElement>(null);
@@ -6,6 +7,7 @@ export default function Hero() {
 
 	useEffect(() => {
 		const headerTitleElement = document.querySelector('#header-title') as HTMLDivElement;
+		const navListElement = document.querySelector('#nav-items') as HTMLDivElement;
 
 		if (!scrollingElementRef.current || !textContainerRef.current || !headerTitleElement) return;
 		const scrollingElement = scrollingElementRef.current;
@@ -39,12 +41,20 @@ export default function Hero() {
 				}
 			}
 		};
-
 		const observerOptions = { threshold: 0 };
-
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
-				if (!entry.isIntersecting) scrollingElement.style.display = 'none';
+				if (!entry.isIntersecting) {
+					scrollingElement.style.display = 'none';
+					navListElement.style.pointerEvents = 'auto';
+					document.querySelectorAll('.nav-item').forEach((item) => item.classList.add('clickable'));
+
+					if (getBrowser() === 'Safari') window.scrollTo(0, 0);
+					document.documentElement.style.scrollBehavior = 'smooth';
+
+					window.removeEventListener('scroll', handleScroll);
+					window.removeEventListener('resize', handleScroll);
+				}
 			});
 		}, observerOptions);
 
@@ -66,7 +76,7 @@ export default function Hero() {
 	}, []);
 
 	return (
-		<div ref={scrollingElementRef} className="relative hidden h-[calc(130vh_-_6rem)] lg:block lg:py-24">
+		<div ref={scrollingElementRef} className="relative h-[calc(130vh_-_6rem)] lg:block lg:py-24">
 			<div className="fixed inset-0 flex items-center justify-center">
 				<div
 					ref={textContainerRef}
