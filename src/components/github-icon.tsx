@@ -1,11 +1,6 @@
 export default function GithubIcon() {
 	return (
-		<svg
-			className="fill-foreground group-hover:fill-purple-700 focus-visible:fill-purple-700 dark:group-hover:fill-purple-500 dark:focus-visible:fill-purple-500"
-			viewBox="0 0 100 100"
-			width="30"
-			height="30"
-			xmlns="http://www.w3.org/2000/svg">
+		<svg className="fill-foreground " viewBox="0 0 100 100" width="30" height="30" xmlns="http://www.w3.org/2000/svg">
 			<path
 				fillRule="evenodd"
 				clipRule="evenodd"
