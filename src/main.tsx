@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import App from './App-1.tsx';
+import App from './app.tsx';
 import { ThemeProvider } from '@context/theme-provider.tsx';
 
 import './index.css';
