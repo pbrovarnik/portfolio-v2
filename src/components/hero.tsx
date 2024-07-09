@@ -76,7 +76,7 @@ export default function Hero() {
 	}, []);
 
 	return (
-		<div ref={scrollingElementRef} className="relative h-[calc(130vh_-_6rem)] lg:block lg:py-24">
+		<div ref={scrollingElementRef} className="relative h-[calc(130vh_-_6rem)] hidden lg:block lg:py-24">
 			<div className="fixed inset-0 flex items-center justify-center">
 				<div
 					ref={textContainerRef}
