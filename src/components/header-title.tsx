@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import ThemeToggle from './theme-toggle';
+import { isTouchDevice } from '../utils/utils';
 
 export default function HeaderTitle() {
 	const headerTitleRef = useRef<HTMLDivElement>(null);
@@ -37,7 +38,7 @@ export default function HeaderTitle() {
 	};
 
 	return (
-		<div ref={headerTitleRef} id="header-title" className="lg:opacity-0">
+		<div ref={headerTitleRef} id="header-title" className={`${isTouchDevice() ? '' : 'lg:opacity-0'}`}>
 			<div className="flex items-center gap-2">
 				<h1 className="text-4xl font-bold cursor-pointer tracking-tight sm:text-5xl" onClick={handleTitleClick}>
 					Pasha Brovarnik

@@ -27,3 +27,7 @@ export function getBrowser(): BrowserType {
 
 	return browser;
 }
+
+export const isTouchDevice = () => {
+	return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+};
