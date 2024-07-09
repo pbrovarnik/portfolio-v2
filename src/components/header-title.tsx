@@ -9,7 +9,10 @@ export default function HeaderTitle() {
 			if (!headerTitleRef.current) return;
 
 			const headerTitleElement = headerTitleRef.current;
-			const observerOptions = { threshold: 0 };
+			const observerOptions: IntersectionObserverInit = {
+				threshold: 0,
+				rootMargin: '0px 0px -50% 0px',
+			};
 			const observer = new IntersectionObserver((entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting && window.getComputedStyle(headerTitleElement).opacity === '0') {

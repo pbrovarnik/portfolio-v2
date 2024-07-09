@@ -45,7 +45,7 @@ export default function MainContent() {
 	useEffect(() => {
 		if (!aboutRef.current || !experienceRef.current || !projectsRef.current) return;
 
-		const options: IntersectionObserverInit = {
+		const observerOptions: IntersectionObserverInit = {
 			rootMargin: '-50% 0% -50% 0%',
 		};
 
@@ -62,7 +62,7 @@ export default function MainContent() {
 					navElement.classList.add('active');
 				}
 			}
-		}, options);
+		}, observerOptions);
 
 		[aboutRef.current, experienceRef.current, projectsRef.current].forEach((element) => observer.observe(element));
 
