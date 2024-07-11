@@ -24,7 +24,20 @@ export default function Card({ badges, description, href, imgAlt, imgSrc, repoHr
 					{workedDates}
 				</div>
 			)}
-			{imgAlt && imgSrc && <img alt={imgAlt} loading="lazy" width="200" height="48" decoding="async" className="col-span-3 mb-4 " src={imgSrc} />}
+			{/* {imgAlt && imgSrc && <img alt={imgAlt} loading="lazy" width="200" height="48" decoding="async" className="col-span-3 mb-4" src={imgSrc} />} */}
+
+			{imgAlt && imgSrc && (
+				<div className="col-span-3 relative mb-4 rounded-md max-w-[200px]">
+					<div className="bg-gray-700 p-1 rounded-t-md">
+						<div className="flex gap-1">
+							<div className="w-1 h-1 rounded-full bg-red-500"></div>
+							<div className="w-1 h-1 rounded-full bg-yellow-500"></div>
+							<div className="w-1 h-1 rounded-full bg-green-500"></div>
+						</div>
+					</div>
+					<img alt={imgAlt} loading="lazy" width="200" height="48" decoding="async" src={imgSrc} className="rounded-b-md" />
+				</div>
+			)}
 
 			<div className="z-10 sm:col-span-6">
 				<h3 className="font-medium leading-snug">
