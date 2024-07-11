@@ -9,12 +9,7 @@ type Props = {
 export default function LinkButton({ children, href, showIcon = true }: Props) {
 	return (
 		<>
-			<a
-				target="_blank"
-				rel="noreferrer noopener"
-				aria-label={`${children} (opens in a new tab)`}
-				//  href={href}
-				className="group/link flex items-center w-fit font-medium leading-tight text-foreground">
+			<a target="_blank" rel="noreferrer noopener" aria-label={`${children} (opens in a new tab)`} href={href} className="group/link flex items-center w-fit font-medium leading-tight text-foreground">
 				<p className="group-hover/link:underline-hover underline-active group-hover/link:before:opacity-100">{children}</p>
 				{showIcon && (
 					<div>
