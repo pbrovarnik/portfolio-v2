@@ -18,7 +18,7 @@ export type CardType = {
 export default function Card({ badges, description, href, imgAlt, imgSrc, repoHref, svgTextPrefix, title, workedDates }: CardType) {
 	return (
 		<div className="max-w-xl group relative grid pb-1 transition-all lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-			<div className="absolute -inset-x-8 sm:-inset-x-4 -inset-y-4 z-0 rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:hidden lg:group-hover:block lg:group-hover:bg-slate-800/5 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg dark:lg:group-hover:bg-slate-800/50 bg-slate-800/5 dark:bg-slate-800/50 drop-shadow-lg shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)]" />
+			<div className="absolute -inset-x-6 sm:-inset-x-4 -inset-y-4 z-0 sm:rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:hidden lg:group-hover:block lg:group-hover:bg-slate-800/5 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg dark:lg:group-hover:bg-slate-800/50 bg-slate-800/5 dark:bg-slate-800/50 drop-shadow-lg shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)]" />
 			{workedDates && (
 				<div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 sm:col-span-2" aria-label={workedDates}>
 					{workedDates}

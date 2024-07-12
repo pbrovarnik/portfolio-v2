@@ -8,3 +8,4 @@
 
 -Add github read me and description
 -Fix the sub title text on the header
+-on iphone screen fix horizontal scroll
