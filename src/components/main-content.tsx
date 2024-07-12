@@ -48,7 +48,6 @@ export default function MainContent() {
 		const observerOptions: IntersectionObserverInit = {
 			rootMargin: '-50% 0% -50% 0%',
 		};
-
 		const observer = new IntersectionObserver((entries) => {
 			for (const entry of entries) {
 				const navElement = document.querySelector(`a[href="#${entry.target.id}"]`);

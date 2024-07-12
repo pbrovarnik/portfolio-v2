@@ -10,6 +10,7 @@ export default function Hero() {
 		const navListElement = document.querySelector('#nav-items') as HTMLDivElement;
 
 		if (!scrollingElementRef.current || !textContainerRef.current || !headerTitleElement) return;
+
 		const scrollingElement = scrollingElementRef.current;
 		const textContainer = textContainerRef.current;
 
@@ -18,29 +19,13 @@ export default function Hero() {
 			const scale = 2 - (scrollY / window.innerHeight) * 4;
 
 			if (scale > 1) {
-				textContainer.style.transform = `scale(${scale})`;
+				setScaleOnHeroText(textContainer, scale);
 			} else {
-				const scrollingElementWidth = scrollingElement.offsetWidth;
-				const containerWidth = textContainer.offsetWidth;
-
-				const maxTranslateX = (scrollingElementWidth - containerWidth) / 2;
-				textContainer.style.transform = `translateX(-${maxTranslateX}px)`;
-
-				const headerRect = headerTitleElement.getBoundingClientRect();
-				const textContainerRect = textContainer.getBoundingClientRect();
-
-				if (headerRect.top <= textContainerRect.top && headerRect.bottom >= textContainerRect.top) {
-					textContainer.style.opacity = '0';
-					headerTitleElement.style.opacity = '1';
-				}
-
-				// currently not working because in the intersection observer display is set to none
-				if (headerRect.top > textContainerRect.top && headerRect.top < textContainerRect.bottom) {
-					textContainer.style.opacity = '1';
-					headerTitleElement.style.opacity = '0';
-				}
+				setTranslateXOnHeroText(scrollingElement, textContainer);
+				setOpacityOnHeroText(headerTitleElement, textContainer);
 			}
 		};
+
 		const observerOptions = { threshold: 0 };
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
@@ -91,4 +76,32 @@ export default function Hero() {
 			</div>
 		</div>
 	);
+}
+
+function setScaleOnHeroText(textContainer: HTMLDivElement, scale: number) {
+	textContainer.style.transform = `scale(${scale})`;
+}
+
+function setTranslateXOnHeroText(scrollingElement: HTMLDivElement, textContainer: HTMLDivElement) {
+	const scrollingElementWidth = scrollingElement.offsetWidth;
+	const containerWidth = textContainer.offsetWidth;
+
+	const maxTranslateX = (scrollingElementWidth - containerWidth) / 2;
+	textContainer.style.transform = `translateX(-${maxTranslateX}px)`;
+}
+
+function setOpacityOnHeroText(headerTitleElement: HTMLDivElement, textContainer: HTMLDivElement) {
+	const headerRect = headerTitleElement.getBoundingClientRect();
+	const textContainerRect = textContainer.getBoundingClientRect();
+
+	if (headerRect.top <= textContainerRect.top && headerRect.bottom >= textContainerRect.top) {
+		textContainer.style.opacity = '0';
+		headerTitleElement.style.opacity = '1';
+	}
+
+	// currently not working because in the intersection observer display is set to none
+	if (headerRect.top > textContainerRect.top && headerRect.top < textContainerRect.bottom) {
+		textContainer.style.opacity = '1';
+		headerTitleElement.style.opacity = '0';
+	}
 }

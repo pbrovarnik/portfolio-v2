@@ -10,6 +10,7 @@ export default function HeaderTitle() {
 			if (!headerTitleRef.current) return;
 
 			const headerTitleElement = headerTitleRef.current;
+
 			const observerOptions: IntersectionObserverInit = {
 				threshold: 0,
 				rootMargin: '0px 0px -50% 0px',
@@ -22,6 +23,7 @@ export default function HeaderTitle() {
 					}
 				});
 			}, observerOptions);
+
 			observer.observe(headerTitleElement);
 		};
 

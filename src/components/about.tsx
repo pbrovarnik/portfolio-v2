@@ -10,10 +10,7 @@ export default function About() {
 	useEffect(() => {
 		if (!captureDivRef.current || !overlayDivRef.current) return;
 
-		// Clone child element
 		const clonedChild = captureDivRef.current.children[0].cloneNode(true);
-
-		// Append cloned child to overlay
 		overlayDivRef.current.appendChild(clonedChild);
 	}, []);
 
