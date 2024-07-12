@@ -1,8 +1,9 @@
-import Card, { CardType } from './card';
+import { CardType } from './card';
 import chessPartyThumbnail from '@assets/chess-party-thumbnail.png';
 import clothingShopThumbnail from '@assets/clothing-shop-thumbnail.png';
 import moviePreviewThumbnail from '@assets/movie-preview-thumbnail.png';
 import devDoodlesThumbnail from '@assets/dev-doodles-thumbnail.png';
+import CardList from './card-list';
 
 const BASE_URL = 'https://pbrovarnik.github.io';
 
@@ -47,13 +48,5 @@ const PROJECT_DATA: CardType[] = [
 ];
 
 export default function Projects() {
-	return (
-		<ol className="group/list">
-			{PROJECT_DATA.map((item, idx) => (
-				<li key={idx} className="mb-12">
-					<Card {...item} />
-				</li>
-			))}
-		</ol>
-	);
+	return <CardList cardData={PROJECT_DATA} />;
 }
