@@ -41,7 +41,7 @@ export default function Card({ badges, description, href, imgAlt, imgSrc, repoHr
 					<div>
 						<a
 							href={href}
-							className="group/link inline-flex items-baseline text-base font-medium leading-tight text-foreground hover:text-purple-700 focus-visible:text-purple-700 dark:hover:text-purple-500 dark:focus-visible:text-purple-500"
+							className="card-title group/link inline-flex items-baseline text-base font-medium leading-tight text-foreground hover:text-purple-700 focus-visible:text-purple-700 dark:hover:text-purple-500 dark:focus-visible:text-purple-500 active:text-purple-700 dark:active:text-purple-500"
 							target="_blank"
 							rel="noreferrer noopener"
 							aria-label={`${title} (opens in a new tab)`}>
