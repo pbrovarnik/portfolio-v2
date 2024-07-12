@@ -82,8 +82,18 @@ export default {
 		animate,
 		typography,
 		plugin(
-			function ({ addVariant }) {
-				addVariant('glow', '.glow-capture .glow-overlay &');
+			({ addBase, addVariant, theme }) => {
+				addBase({
+					p: {
+						color: theme('colors.slate.600'),
+					},
+					'.dark': {
+						p: {
+							color: theme('colors.slate.400'),
+						},
+					},
+				}),
+					addVariant('glow', '.glow-capture .glow-overlay &');
 			},
 			{
 				theme: {
