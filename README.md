@@ -1,4 +1,6 @@
-![Build Status](https://img.shields.io/github/workflow/status/pbrovarnik/portfolio-v2/CI)
+[![.github/workflows/deploy.yml](https://github.com/pbrovarnik/portfolio-v2/actions/workflows/deploy.yml/badge.svg?branch=main&event=deployment_status)](https://github.com/pbrovarnik/portfolio-v2/actions/workflows/deploy.yml)
+
+[![pages-build-deployment](https://github.com/pbrovarnik/portfolio-v2/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages&event=page_build)](https://github.com/pbrovarnik/portfolio-v2/actions/workflows/pages/pages-build-deployment)
 
 # Hey, I'm Pasha! 👋
 
@@ -8,7 +10,7 @@ Welcome to my profile, v2! Here's a peek into what I'm up to:
 - 🚀 Excited about: Developing an AI player using the Minimax algorithm to create challenging opponents in multiplayer games.
 - 💡 Fun fact: I once turned a coffee-fueled brainstorming session into a fully functional prototype in a single weekend! ☕️💻
 
-- 📫 How to reach me: [Your preferred contact details]
+- 📫 How to reach me: Drop me an [email](mailto:pasha.brovarnik@gmail.com) or connect with me on [LinkedIn](https://linkedin.com/in/pasha-brovarnik/).
 
 ### 🛠️ Latest Projects
 
