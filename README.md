@@ -1,6 +1,4 @@
-[![.github/workflows/deploy.yml](https://github.com/pbrovarnik/portfolio-v2/actions/workflows/deploy.yml/badge.svg?branch=main&event=deployment_status)](https://github.com/pbrovarnik/portfolio-v2/actions/workflows/deploy.yml)
-
-[![pages-build-deployment](https://github.com/pbrovarnik/portfolio-v2/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages&event=page_build)](https://github.com/pbrovarnik/portfolio-v2/actions/workflows/pages/pages-build-deployment)
+[![.github/workflows/deploy.yml](https://github.com/pbrovarnik/portfolio-v2/actions/workflows/deploy.yml/badge.svg)](https://github.com/pbrovarnik/portfolio-v2/actions/workflows/deploy.yml) [![pages-build-deployment](https://github.com/pbrovarnik/portfolio-v2/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/pbrovarnik/portfolio-v2/actions/workflows/pages/pages-build-deployment)
 
 # Hey, I'm Pasha! 👋
 
