@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { getBrowser } from '../utils/utils';
+import HeaderTitle from './header-title';
 
 export default function Hero() {
 	const scrollingElementRef = useRef<HTMLDivElement>(null);
@@ -69,9 +70,7 @@ export default function Hero() {
 					style={{
 						transition: 'transform 0.3s ease-out, scale 0.1s ease-out',
 					}}>
-					<h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Pasha Brovarnik</h1>
-					<h2 className="mt-3 text-lg font-medium tracking-tight sm:text-xl">Full-stack Engineer</h2>
-					<p className="mt-4 max-w-xs leading-normal">I build pixel-perfect, engaging, and accessible digital experiences.</p>
+					<HeaderTitle showThemeToggle={false} />
 				</div>
 			</div>
 		</div>
