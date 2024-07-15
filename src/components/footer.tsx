@@ -3,7 +3,7 @@ import Socials from './socials';
 
 export default function Footer() {
 	return (
-		<footer className="max-w-md pb-16 text-sm sm:pb-0 grid grid-rows-2 lg:grid-rows-1 grid-cols-[max-content_1fr] gap-x-3">
+		<footer className="max-w-md pb-0 text-sm grid grid-rows-2 lg:grid-rows-1 grid-cols-[max-content_1fr] gap-x-3">
 			<div className="w-16 h-16 overflow-hidden rounded-full flex items-center justify-center col-span-1 row-span-1">
 				<img alt="image of me" loading="lazy" width="100%" height="100%" decoding="async" src={me} className="w-full h-full object-cover object-top" />
 			</div>
