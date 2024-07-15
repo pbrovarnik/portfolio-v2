@@ -12,7 +12,7 @@ export default function Footer() {
 				<a
 					rel="noreferrer noopener"
 					aria-label="opens email client"
-					className="underline-effect group-hover:before:opacity-100 font-medium text-foreground focus-visible:text-foreground group-hover:text-purple-700 dark:group-hover:text-purple-500 uppercase transition-colors"
+					className="underline-effect group-hover:before:opacity-100 text-xs font-medium focus-visible:text-purple-700 text-purple-700 dark:text-purple-500 dark:focus-visible:text-purple-500 uppercase"
 					href="mailto:pasha.brovarnik@gmail.com">
 					connect
 				</a>{' '}
