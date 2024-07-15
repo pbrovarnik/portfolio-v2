@@ -20,7 +20,7 @@ const PROJECT_DATA: CardType[] = [
 	},
 	{
 		badges: ['React', 'Easy-peasy', 'SASS', 'TheMovieDB', 'OpenMovieDB', 'YouTube API'],
-		description: 'Find your favorite movies! Search for any movie, get a plot overview, watch the trailer, and see ratings from companies like Rotten Tomatoes and IMDB.',
+		description: 'Find your favorite movie trailers! Search for any movie, get a plot overview, watch the trailer, and see ratings from companies like Rotten Tomatoes and IMDB.',
 		href: `${BASE_URL}/movie-preview/`,
 		imgAlt: 'movie preview',
 		imgSrc: moviePreviewThumbnail,
