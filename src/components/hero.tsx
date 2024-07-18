@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { getBrowser } from '../utils/utils';
+import { getBrowser, setOpacityOnHeroText, setPointerEventsOnHeaderTitleText, setTranslateXOnHeroText } from '../utils/utils';
 import HeaderTitle from './header-title';
 
 export default function Hero() {
@@ -20,7 +20,7 @@ export default function Hero() {
 			const scale = 2 - (scrollY / window.innerHeight) * 4;
 
 			if (scale > 1) {
-				setScaleOnHeroText(textContainer, scale);
+				textContainer.style.transform = `scale(${scale})`;
 			} else {
 				setTranslateXOnHeroText(scrollingElement, textContainer);
 				setOpacityOnHeroText(headerTitleElement, textContainer);
@@ -31,8 +31,11 @@ export default function Hero() {
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (!entry.isIntersecting) {
+					setPointerEventsOnHeaderTitleText(headerTitleElement);
+
 					scrollingElement.style.display = 'none';
 					navListElement.style.pointerEvents = 'auto';
+
 					document.querySelectorAll('.nav-item').forEach((item) => item.classList.add('clickable'));
 
 					if (getBrowser() === 'Safari') window.scrollTo(0, 0);
@@ -64,43 +67,10 @@ export default function Hero() {
 	return (
 		<div ref={scrollingElementRef} className="relative h-[calc(130vh_-_6rem)] hidden lg:block lg:py-24">
 			<div className="fixed inset-0 flex items-center justify-center">
-				<div
-					ref={textContainerRef}
-					className="scale-[2.0]"
-					style={{
-						transition: 'transform 0.3s ease-out, scale 0.1s ease-out',
-					}}>
+				<div ref={textContainerRef} className="scale-[2.0] transition-[transform] duration-500 ease-out">
 					<HeaderTitle showThemeToggle={false} />
 				</div>
 			</div>
 		</div>
 	);
-}
-
-function setScaleOnHeroText(textContainer: HTMLDivElement, scale: number) {
-	textContainer.style.transform = `scale(${scale})`;
-}
-
-function setTranslateXOnHeroText(scrollingElement: HTMLDivElement, textContainer: HTMLDivElement) {
-	const scrollingElementWidth = scrollingElement.offsetWidth;
-	const containerWidth = textContainer.offsetWidth;
-
-	const maxTranslateX = (scrollingElementWidth - containerWidth) / 2;
-	textContainer.style.transform = `translateX(-${maxTranslateX}px)`;
-}
-
-function setOpacityOnHeroText(headerTitleElement: HTMLDivElement, textContainer: HTMLDivElement) {
-	const headerRect = headerTitleElement.getBoundingClientRect();
-	const textContainerRect = textContainer.getBoundingClientRect();
-
-	if (headerRect.top <= textContainerRect.top && headerRect.bottom >= textContainerRect.top) {
-		textContainer.style.opacity = '0';
-		headerTitleElement.style.opacity = '1';
-	}
-
-	// currently not working because in the intersection observer display is set to none
-	if (headerRect.top > textContainerRect.top && headerRect.top < textContainerRect.bottom) {
-		textContainer.style.opacity = '1';
-		headerTitleElement.style.opacity = '0';
-	}
 }

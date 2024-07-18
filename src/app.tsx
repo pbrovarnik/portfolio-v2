@@ -10,7 +10,10 @@ export default function App() {
 			if (!window.performance) return;
 
 			const navigationType = window.performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
-			if (navigationType.type === 'reload' && window.location.hash) window.history.replaceState(null, 'Pasha Brovarnik', '/');
+			if (navigationType.type === 'reload') {
+				window.scrollTo(0, 0);
+				window.history.replaceState(null, 'Pasha Brovarnik', '/');
+			}
 		};
 
 		resetUrlHashOnRefresh();

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { isTouchDevice } from '../utils/utils';
+import { isTouchDevice, setPointerEventsOnHeaderTitleText } from '../utils/utils';
 import HeaderTitle from './header-title';
 
 export default function SidebarHeader() {
@@ -17,10 +17,14 @@ export default function SidebarHeader() {
 			};
 			const observer = new IntersectionObserver((entries) => {
 				entries.forEach((entry) => {
-					if (entry.isIntersecting && window.getComputedStyle(headerTitleElement).opacity === '0') {
+					if (!entry.isIntersecting) return;
+
+					if (window.getComputedStyle(headerTitleElement).opacity === '0') {
 						headerTitleElement.style.opacity = '1';
 						observer.unobserve(headerTitleElement);
 					}
+
+					setPointerEventsOnHeaderTitleText(headerTitleElement);
 				});
 			}, observerOptions);
 
@@ -34,14 +38,9 @@ export default function SidebarHeader() {
 		};
 	}, []);
 
-	const handleTitleClick = () => {
-		window.history.replaceState(null, 'Pasha Brovarnik', '/');
-		window.scrollTo(0, 0);
-	};
-
 	return (
 		<div ref={headerTitleRef} id="header-title" className={`${isTouchDevice() ? '' : 'lg:opacity-0'}`}>
-			<HeaderTitle onTitleClick={handleTitleClick} showThemeToggle />
+			<HeaderTitle showThemeToggle />
 		</div>
 	);
 }

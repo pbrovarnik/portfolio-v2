@@ -31,3 +31,45 @@ export function getBrowser(): BrowserType {
 export const isTouchDevice = () => {
 	return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 };
+
+export function setTranslateXOnHeroText(scrollingElement: HTMLDivElement, textContainer: HTMLDivElement) {
+	const scrollingElementWidth = scrollingElement.offsetWidth;
+	const containerWidth = textContainer.offsetWidth;
+
+	const maxTranslateX = (scrollingElementWidth - containerWidth) / 2;
+	textContainer.style.transform = `translateX(-${maxTranslateX}px)`;
+}
+
+export function setOpacityOnHeroText(headerTitleElement: HTMLDivElement, textContainer: HTMLDivElement) {
+	const headerRect = headerTitleElement.getBoundingClientRect();
+	const textContainerRect = textContainer.getBoundingClientRect();
+
+	if (headerRect.top <= textContainerRect.top && headerRect.bottom >= textContainerRect.top) {
+		textContainer.style.opacity = '0';
+		headerTitleElement.style.opacity = '1';
+	}
+
+	// currently not working because in the intersection observer display is set to none
+	if (headerRect.top > textContainerRect.top && headerRect.top < textContainerRect.bottom) {
+		textContainer.style.opacity = '1';
+		headerTitleElement.style.opacity = '0';
+	}
+}
+
+export function setPointerEventsOnHeaderTitleText(headerTitleElement: HTMLDivElement) {
+	const headerTitleText = headerTitleElement.querySelector('h1');
+	if (!headerTitleText) return;
+
+	if (window.innerWidth > 1023) {
+		headerTitleText.style.pointerEvents = 'auto';
+		headerTitleText.style.cursor = 'pointer';
+		headerTitleText.onclick = () => {
+			window.history.replaceState(null, 'Pasha Brovarnik', '/');
+			window.scrollTo(0, 0);
+		};
+	} else {
+		headerTitleText.style.pointerEvents = 'auto';
+		headerTitleText.style.cursor = 'text';
+		headerTitleText.onclick = null;
+	}
+}
