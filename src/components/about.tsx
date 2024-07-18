@@ -33,24 +33,24 @@ export default function About() {
 
 	return (
 		<div ref={captureDivRef} className="glow-capture relative" onMouseMove={handleMouseMove} onMouseOut={handleMouseOut}>
-			<div className="glow group font-medium flex flex-col flex-wrap items-center justify-center gap-6 rounded-md glow:text-glow md:flex-row md:items-start md:justify-between">
-				<p>
+			<div className="about-section group">
+				<span>
 					It all began in 2010 when I ventured into the world of tech to create processes for optimizing software quality. I quickly found myself diving headfirst into building automated solutions,
 					aiming to bring fast and reliable development cycles to e-commerce corporations and analytics platforms. This journey has taken me from designing tools that ensure product reliability to now
 					developing cutting-edge software products, always driven by a passion for innovation and problem-solving.
-				</p>
+				</span>
 
-				<p>
+				<span>
 					Fast-forward to today, I've been privileged to be a founding engineer multiple times over, collaborating with talented teams to build foundational technology for early-stage start-ups. My
 					recent roles have involved playing a pivotal role in the evolution of a vertical CRM and spearheading front-end architecture for a clinical trials platform.
-				</p>
+				</span>
 
-				<p>
+				<span>
 					Currently, I'm focused on creating scalable and maintainable systems using a suite of modern frameworks. My expertise lies in bridging the gap between elegant design and robust engineering,
 					ensuring that every product I build is both visually appealing and technically sound.
-				</p>
+				</span>
 
-				<p>Outside of coding, you can find me experimenting with new recipes, climbing at my local crag, or collecting stamps in my passport.</p>
+				<span>Outside of coding, you can find me experimenting with new recipes, climbing at my local crag, or collecting stamps in my passport.</span>
 			</div>
 			<div ref={overlayDivRef} className="glow-overlay" />
 		</div>

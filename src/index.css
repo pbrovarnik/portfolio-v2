@@ -88,6 +88,14 @@
 }
 
 @layer components {
+	.about-section {
+		@apply text-slate-600 dark:text-slate-400 font-medium flex flex-col flex-wrap items-center justify-center gap-6 rounded-md glow:text-glow md:flex-row md:items-start md:justify-between;
+	}
+
+	.external-link-icon {
+		@apply ml-1 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none;
+	}
+
 	.glow-overlay {
 		--glow-size: 25rem;
 		position: absolute;
@@ -153,14 +161,7 @@
 	}
 
 	.theme-toggle {
-		display: block;
-		width: fit-content;
-		cursor: pointer;
-		background: 0;
-		border: 0;
-		border-radius: 50%;
-		position: relative;
-		isolation: isolate;
+		@apply pulse block relative rounded-full isolate w-fit cursor-pointer border-0 p-1 sm:p-2 focus:bg-foreground before:bg-foreground before:text-background hover:bg-foreground/5 dark:hover:bg-foreground/10;
 
 		& input {
 			position: absolute;
@@ -280,6 +281,8 @@
 	}
 
 	.card-title {
+		@apply inline-flex items-baseline text-base font-medium leading-tight text-foreground hover:text-purple-700 focus-visible:text-purple-700 dark:hover:text-purple-500 dark:focus-visible:text-purple-500 active:text-purple-700 dark:active:text-purple-500;
+
 		@media (hover: none) {
 			transition: color 700ms cubic-bezier(0.4, 0, 0.2, 1);
 

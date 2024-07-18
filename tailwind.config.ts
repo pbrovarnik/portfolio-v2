@@ -81,19 +81,21 @@ export default {
 	plugins: [
 		animate,
 		typography,
-		plugin(
-			({ addBase, addVariant, theme }) => {
-				addBase({
+		plugin(({ addBase, theme }) => {
+			addBase({
+				p: {
+					color: theme('colors.slate.600'),
+				},
+				'.dark': {
 					p: {
-						color: theme('colors.slate.600'),
+						color: theme('colors.slate.400'),
 					},
-					'.dark': {
-						p: {
-							color: theme('colors.slate.400'),
-						},
-					},
-				}),
-					addVariant('glow', '.glow-capture .glow-overlay &');
+				},
+			});
+		}),
+		plugin(
+			({ addVariant }) => {
+				addVariant('glow', '.glow-capture .glow-overlay &');
 			},
 			{
 				theme: {

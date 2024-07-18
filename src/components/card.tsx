@@ -39,12 +39,7 @@ export default function Card({ badges, description, href, imgAlt, imgSrc, repoHr
 			<div className="z-10 sm:col-span-6">
 				<h3 className="font-medium leading-snug">
 					<div>
-						<a
-							href={href}
-							className="card-title group/link inline-flex items-baseline text-base font-medium leading-tight text-foreground hover:text-purple-700 focus-visible:text-purple-700 dark:hover:text-purple-500 dark:focus-visible:text-purple-500 active:text-purple-700 dark:active:text-purple-500"
-							target="_blank"
-							rel="noreferrer noopener"
-							aria-label={`${title} (opens in a new tab)`}>
+						<a href={href} className="card-title group/link" target="_blank" rel="noreferrer noopener" aria-label={`${title} (opens in a new tab)`}>
 							{/* needed to trigger the hover on the title from anywhere on the card */}
 							<span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block" />
 							<span>{title}</span>

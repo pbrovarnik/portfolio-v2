@@ -24,7 +24,7 @@ export default function ThemeToggle() {
 	};
 
 	return (
-		<label id="themeToggle" className="group theme-toggle pulse p-1 sm:p-2 focus:bg-foreground before:bg-foreground before:text-background hover:bg-foreground/5 dark:hover:bg-foreground/10">
+		<label className="theme-toggle group">
 			<input ref={inputRef} type="checkbox" onClick={handleThemeToggle} />
 			<svg className="fill-current w-[25px] h-[25px] sm:w-[30px] sm:h-[30px]" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 472.39 472.39">
 				<g className="toggle-sun">
