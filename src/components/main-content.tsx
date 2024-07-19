@@ -23,7 +23,7 @@ export default function MainContent() {
 		() => [
 			{ Component: About, id: 'about', name: 'About', ref: aboutRef },
 			{
-				buttonHref: 'https://drive.google.com/file/d/1yfkB5fom0jgZE-uNcv0C4oOxF2qp78H9/view',
+				buttonHref: 'https://drive.google.com/file/d/1FX2uqRHaexe_WEY2u_ZUu1AlS5zD2wET/view',
 				buttonText: 'View resume',
 				Component: Experience,
 				id: 'experience',
