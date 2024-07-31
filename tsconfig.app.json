@@ -28,6 +28,7 @@
 			"@assets/*": ["./src/assets/*"],
 			"@components/*": ["./src/components/*"],
 			"@context/*": ["./src/context/*"],
+			"@constants/*": ["./src/constants/*"],
 			"@hooks/*": ["./src/hooks/*"],
 			"@src/*": ["./src/*"]
 		}

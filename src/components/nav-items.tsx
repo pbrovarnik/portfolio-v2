@@ -1,10 +1,5 @@
+import { navItemsList } from '../constants';
 import NavItem from './nav-item';
-
-const navItemsList = [
-	{ href: 'about', name: 'About' },
-	{ href: 'experience', name: 'Experience' },
-	{ href: 'projects', name: 'Projects' },
-];
 
 export default function NavItems() {
 	return (
